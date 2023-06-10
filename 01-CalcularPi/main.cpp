@@ -6,6 +6,8 @@ double calc_pi(double pi){
 
   double numerador {1.0};
   int i {1};
+  double pre_pi{3.1415917};
+  double post_pi{3.1415933};
 
    do{
 
@@ -13,7 +15,7 @@ double calc_pi(double pi){
     numerador *= -1; 
     i+=2;
     
-  }while((pi < 3.1415917) || (pi > 3.1415933)); // con  3.1415917 el valor de la iteración anterior y  3.1415933 la posterior al valor exacto de Pi con 6 decimales
+  }while((pi < pre_pi) || (pi > post_pi)); // con  3.1415917 el valor de la iteración anterior y  3.1415933 la posterior al valor exacto de Pi con 6 decimales
 
   return pi;
 }  
