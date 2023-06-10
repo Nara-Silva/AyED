@@ -1,28 +1,27 @@
 
 #include <iostream>
-#include <iomanip>  
+#include <iomanip>
 
-double calcular_pi(int min_iteraciones) {
+double calc_pi(double pi){
 
-    double pi {0.0};
-    double numerador {1.0};
-    int multiplicador {4};
+  double numerador {1.0};
+  int i {1};
 
-    for (int i = 1; i < min_iteraciones; i+=2) { 
-             
-        pi += multiplicador * (numerador / i);         
-        numerador *= -1;                      
-    }
+   do{
 
-    return pi;
-}
+    pi += 4*(numerador /i);
+    numerador *= -1; 
+    i+=2;
+    
+  }while((pi < 3.1415917) || (pi > 3.1415933)); // con  3.1415917 el valor de la iteración anterior y  3.1415933 la posterior al valor exacto de Pi con 6 decimales
 
+  return pi;
+}  
 
 int main() {
 
-    const int min_iteraciones {2000000}; 
-    double pi = calcular_pi(min_iteraciones);
-    std::cout << "Usando la Serie de Leibniz, el valor encontrado para pi (con 6 decimales) fue: " << std::setprecision(7) << std::fixed << pi << std::endl;
+  double pi {0}; 
+  std :: cout << "Usando la serie de Leibniz, el valor encontrado para pi (con 6 decimales) fue:  " << std :: setprecision(7)  << calc_pi(pi) <<std :: endl;
 
-    return 0;
+  return 0;
 }
